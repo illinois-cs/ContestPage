@@ -1,0 +1,25 @@
+<div ng-controller='MovieDetailCtrl'>
+  <!-- LEFT AND RIGHT BUTTON SHOULD GO HERE -->
+  
+  <!-- TBD: detail view for <span>{{movieId}}</span> -->
+
+  <div ng-repeat="movie in movies | filter:movieId">
+    <nav class = "movie_list">
+      <a ng-href="./imdb250.html#/movies/{{movies[(movie.rank-2+movies.length)%movies.length].imdbID}}">Previous Movie</a>
+      <a ng-href="./imdb250.html#/movies/{{movies[movie.rank%movies.length].imdbID}}">Next Movie</a>
+    </nav>
+    <span class ="movie_title">{{movie.title}}</span><br/>
+    <span class ="movie_rank">Rank:{{movie.rank}}</span><br/>
+    <div class="movie_list">
+      <div><img class = "movie_img" ng-src="./data/images/{{movie.imdbID}}.jpg"/></div>
+      <div>
+        <span class = "movie_plot">{{movie.plot}}</span><br/>
+        <span class = "movie_released">{{movie.released}}</span><br/>
+        <span class = "movie_runtime">{{movie.runtime}}</span><br/>
+        <span class = "movie_awards">{{movie.awards}}</span><br/>
+        <a ng-href="./imdb250.html#/movies/actors/{{movie.imdbID}}">View Actors</a>
+      </div>
+    </div>
+  </div>
+  
+</div>

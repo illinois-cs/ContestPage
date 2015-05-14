@@ -1,0 +1,23 @@
+<div ng-controller='MovieListCtrl'>
+  <input type="search" ng-model="query" placeholder="filter movies..." />
+  Sort by:<br/>
+  <select ng-model="title_rank" ng-options="opt as opt.label for opt in options">
+  </select>
+  <input type="radio" ng-model="reverse" ng-value="false">Ascending
+  <input type="radio" ng-model="reverse" ng-value="true">Descending
+  <ul class="example-animate-container">
+    <li class="animate-repeat movie_list" ng-repeat="movie in movies | filter:query | orderBy:title_rank.value:reverse">
+      <a ng-href="./imdb250.html#/movies/{{movie.imdbID}}">
+        <img class = "movie_img" ng-src="./data/images/{{movie.imdbID}}.jpg"/>
+        <div>
+        	<span class ="movie_title">{{movie.title}}</span>
+        	<span class = "movie_rank">Rank:{{movie.rank}}</span>
+        </div>
+      </a>
+      <br/>
+    </li>
+    <li class="animate-repeat" ng-if="results.length == 0">
+      <strong>No results found...</strong>
+    </li>
+  </ul>
+</div> 

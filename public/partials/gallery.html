@@ -1,0 +1,22 @@
+<div ng-controller='MovieGalleryCtrl'>
+  <input type="radio" ng-model="movie.genre" value="">All
+  <input type="radio" ng-model="movie.genre" value="Action">Action
+  <input type="radio" ng-model="movie.genre" value="Adventure">Adventure
+  <input type="radio" ng-model="movie.genre" value="Crime">Crime
+  <input type="radio" ng-model="movie.genre" value="Comedy">Comedy
+  <input type="radio" ng-model="movie.genre" value="Drama">Drama
+  <input type="radio" ng-model="movie.genre" value="Musical">Musical
+  <input type="radio" ng-model="movie.genre" value="Mystery">Mystery
+  <input type="radio" ng-model="movie.genre" value="Romance">Romance
+  <input type="radio" ng-model="movie.genre" value="Sci-Fi">Sci-Fi
+  <input type="radio" ng-model="movie.genre" value="Thriller">Thriller
+  <input type="radio" ng-model="movie.genre" value="Western">Western
+  <br/>
+  <div class = "gallery">
+    <div ng-repeat="movie in movies | filter:movie.genre">
+      <a ng-href="./imdb250.html#/movies/{{movie.imdbID}}">
+        <img class = "movie_img" ng-src="./data/images/{{movie.imdbID}}.jpg"/>
+      </a>
+    </div>
+  </div>
+</div> 
