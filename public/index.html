@@ -3,51 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <title>CS 241 Contest Page</title>
+  <!-- Misc. CSS -->
   <link rel="stylesheet" href="./css/styles.css">
+  <!-- Foundation -->
   <link rel="stylesheet" href="./foundation/css/foundation.css">
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="./images/icons/favicon.ico">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
+  <!-- Misc. -->
   <script src="./js/script.js"></script>
+  <!-- jQuery -->
   <script src="./lib/jquery-2.1.3.min/index.js"></script>
+  <!-- Angular -->
   <script src="./lib/angular/angular.min.js"></script>
   <script src="./lib/angular-route/angular-route.min.js"></script>
   <script src="./lib/angular-animate/angular-animate.min.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/controllers.js"></script>
+  <!-- Repsonsive Tables -->
+  <script src="./responsive-tables/responsive-tables.js"></script>
+  <link rel="stylesheet" href="./responsive-tables/responsive-tables.css">
+  <!-- Live Reload -->
   <script src="http://localhost:35729/livereload.js"></script>
-</head> 
+</head>
 
 <body>
-  <div ng-controller='ListCtrl'>
-    <input type="search" ng-model="query" placeholder="filter students..." />
-      Sort By:<br/>
-    <select ng-model="fiter_opts" ng-options="opt as opt.label for opt in options">
-    </select>
-    <input type="radio" ng-model="reverse" ng-value="false">Ascending
-    <input type="radio" ng-model="reverse" ng-value="true">Descending
-    <table class = "responsive">
-      <thead>
-        <tr>
-          <td>Nickname</td>
-          <td ng-repeat="testcase in students[0].test_cases">
-            {{testcase.name}}
-          </td>
-          <td>Timestamp</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="student in students | filter:query | orderBy:fiter_opts.value:reverse">
-          <td>[{{$index + 1}}]{{ student.nickname }}</td>
-          <td ng-repeat="testcase in student.test_cases" ng-class="testcase.pts_earned == testcase.total_pts ? 'pass': 'fail'">
-            {{testcase.pts_earned}}/{{testcase.total_pts}} pts<br/>
-            {{testcase.runtime}} secs<br/>
-<!--             {{testcase.max_memory}} bytes<br/ -->
-            <!-- {{testcase.pts_earned == testcase.total_pts ? "pass": "fail"}} -->
-          </td>
-          <td>{{student.time_stamp}}</td>
-      </tbody>
-    </table>
+  <div class = "row" ng-controller='ListCtrl'>
+    <div class = "small-12 large-8 large-centered columns">
+      <h1>CS 241 Contest Page</h1>
+      <input type="search" ng-model="query" placeholder="filter students..." />
+        Sort By:<br/>
+      <select ng-model="fiter_opts" ng-options="opt as opt.label for opt in options">
+      </select>
+      <input type="radio" ng-model="reverse" ng-value="false">Ascending
+      <input type="radio" ng-model="reverse" ng-value="true">Descending
+      <table class = "responsive">
+        <thead>
+          <tr>
+            <th>Nickname</th>
+            <th ng-repeat="testcase in students[0].test_cases">
+              {{testcase.name}}
+            </th>
+            <th>Timestamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="student in students | filter:query | orderBy:fiter_opts.value:reverse">
+            <th>[{{$index + 1}}]{{ student.nickname }}</th>
+            <td ng-repeat="testcase in student.test_cases" ng-class="testcase.pts_earned == testcase.total_pts ? 'pass': 'fail'">
+              <div>
+                {{testcase.pts_earned}}/{{testcase.total_pts}} pts<br/>
+                {{testcase.runtime}} secs<br/>
+                {{testcase.max_memory}} bytes<br/
+                {{testcase.pts_earned == testcase.total_pts ? "pass": "fail"}}
+              </div>
+            </td>
+            <td>{{student.time_stamp}}</td>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
 </html>
