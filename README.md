@@ -2,7 +2,7 @@
 
 ## What is this repository
 This repository holds the code for the CS 241 Contest Page.
-I hope that when I am down with it other courses like 225 and 233 will want to use it for their classes.
+I hope that when I am done with this project other courses like 225 and 233 will want to use it for their classes.
 If you have any feature requests please contact me (Brandon Chong)
 If you would like to contribute just fork this repo, make any modifications, and send a pull request
 
