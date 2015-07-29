@@ -1,5 +1,9 @@
 contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('./data/results.json').success(function(students) {
+
+      var cleanse = function (string) {
+        
+      }
       $scope.students = students;
       var table = $("<table></table>");
       var thead = $("<thead></thead>");
@@ -21,7 +25,16 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         var testcases = student.test_cases;
         for (var j = 0; j < testcases.length; j++) {
           var testcase = testcases[j];
-          tBodyRow.append($("<td>"+testcase.pts_earned+"/"+testcase.total_pts+" pts "+"</td>"))
+          var datum = $("<div></div>")
+            .append($("<p>"+testcase.pts_earned+"/"+testcase.total_pts+" pts </p>"))
+            .append($("<p>"+testcase.runtime+" secs </p>"))
+            .append($("<p>"+testcase.max_memory+" bytes </p>"));
+
+          tBodyRow.append(
+            $("<td></td>")
+              .append(datum)
+              .addClass(testcase.pts_earned == testcase.total_pts ? "pass": "fail")
+            );
         }
         tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tbody.append(tBodyRow);
