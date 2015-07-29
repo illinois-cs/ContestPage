@@ -24,13 +24,16 @@
   <!-- Repsonsive Tables -->
   <script src="./responsive-tables/responsive-tables.js"></script>
   <link rel="stylesheet" href="./responsive-tables/responsive-tables.css">
+  <!-- Data Tables -->
+  <script src="./DataTables/media/js/jquery.dataTables.min.js"></script>
+  <script src="./DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js"></script>
   <!-- Live Reload -->
   <script src="http://localhost:35729/livereload.js"></script>
 </head>
 
 <body>
   <div class = "row" ng-controller='ListCtrl'>
-    <div class = "small-12 large-8 large-centered columns">
+    <div id = "content" class = "small-12 large-8 large-centered columns">
       <h1>CS 241 Contest Page</h1>
       <input type="search" ng-model="query" placeholder="filter students..." />
         Sort By:<br/>
@@ -38,7 +41,7 @@
       </select>
       <input type="radio" ng-model="reverse" ng-value="false">Ascending
       <input type="radio" ng-model="reverse" ng-value="true">Descending
-      <table class = "responsive">
+      <!-- <table class = "responsive" width = "100%;">
         <thead>
           <tr>
             <th>Nickname</th>
@@ -55,13 +58,14 @@
               <div>
                 {{testcase.pts_earned}}/{{testcase.total_pts}} pts<br/>
                 {{testcase.runtime}} secs<br/>
-                {{testcase.max_memory}} bytes<br/
+                {{testcase.max_memory}} bytes<br/>
                 {{testcase.pts_earned == testcase.total_pts ? "pass": "fail"}}
               </div>
             </td>
             <td>{{student.time_stamp}}</td>
+          </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </body>
