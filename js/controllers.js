@@ -7,7 +7,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
          .replace(/</g, "&lt;")
          .replace(/>/g, "&gt;")
          .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#039;")
+         .replace(/'/g, "&#39;")
          .substring(0,15);
       };
 
@@ -27,11 +27,27 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       thead.append(headRow);
       table.append(thead);
 
+      var iifeClick = function (i, name) {
+        return function () {$("#"+i+name).foundation('reveal', 'open')};
+      }
+
+      var makeModel = function (i, name) {
+        var modal = $('<div id="'+i+name+'" class="reveal-modal medium" data-reveal aria-labelledby="'+i+name+'Title" aria-hidden="true" role="dialog"></div>');
+        var valgrind = "Checking for memory leaks...\nTrying to compile your code...\nSuccessfully compiled your code..\n==9109== Memcheck, a memory error detector\n==9109== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9109== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9109== Command: timeout -k 5 -s INT 15 ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9109==\n==9111== Memcheck, a memory error detector\n==9111== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9111== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9111== Command: ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9111==\n==9109== Warning: ignored attempt to set SIGKILL handler in sigaction();\n==9109==the SIGKILL signal is uncatchable'\n"
+        modal
+          .append($('<h2 id="'+i+name+'Title">'+name+' Debug Log</h2>'))
+          .append($('<p class="lead">Terminal Output</p>'))
+          .append($('<textarea class = "terminal" cols="80" rows="15">'+valgrind+'</textarea>'))
+          .append($('<a class="close-reveal-modal" aria-label="Close">&#215;</a>'))
+        return modal;
+      }
+
       var tbody = $("<tbody></tbody>");
       for (var i = 0; i < students.length; i++){
         var student = students[i];
+        student.nickname = cleanse(student.nickname);
         var tBodyRow = $("<tr style = 'border-bottom: 2px solid rgba(225,233,241,255);'></tr>");
-        tBodyRow.append($("<th>"+cleanse(student.nickname)+"</th>"));
+        tBodyRow.append($("<th>"+student.nickname+"</th>"));
         var testcases = student.test_cases;
         var totalTime = 0;
         var totalMemory = 0;
@@ -40,20 +56,22 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
           var datum = $("<div></div>")
             .append($("<p>"+testcase.pts_earned+"/"+testcase.total_pts+" pts </p>"))
             .append($("<p>"+testcase.runtime+" secs </p>"))
-            .append($("<p>"+testcase.max_memory+" bytes </p>"));
+            .append($("<p>"+testcase.max_memory+" bytes </p>"))
+            .click(iifeClick(i,testcase.name));
+
           totalTime += Number(testcase.runtime);
           totalMemory += Number(testcase.max_memory);
 
-          var modal = $('<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog"><h2 id="modalTitle">Awesome. I have it.</h2><p class="lead">Your couch.  It is mine.</p><p>Im a cool paragraph that lives inside of an even cooler modal. Wins!</p><a class="close-reveal-modal" aria-label="Close">&#215;</a></div>');
           tBodyRow.append(
-            $("<td style = 'white-space: nowrap;'></td>")
-              .append(datum)
-              .addClass(testcase.pts_earned == testcase.total_pts ? "pass": "fail")
+              $("<td></td>")
+                .append(datum)
+                .append(makeModel(i,testcase.name))
+                .addClass(testcase.pts_earned == testcase.total_pts ? "pass": "fail")
             );
         }
-        tBodyRow.append($("<td style = 'white-space: nowrap;'>"+totalTime.toFixed(6)+"</td>"));
-        tBodyRow.append($("<td style = 'white-space: nowrap;'>"+totalMemory.toFixed(6)+"</td>"));
-        tBodyRow.append($("<td style = 'white-space: nowrap;'>"+student.time_stamp+"</td>"));
+        tBodyRow.append($("<td>"+totalTime.toFixed(6)+"</td>"));
+        tBodyRow.append($("<td>"+totalMemory.toFixed(6)+"</td>"));
+        tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tbody.append(tBodyRow);
       }
       table.append(tbody);
