@@ -5,8 +5,6 @@
   <title>CS 241 Contest Page</title>
   <!-- Misc. CSS -->
   <link rel="stylesheet" href="./css/styles.css">
-  <!-- Foundation -->
-  <link rel="stylesheet" href="./foundation/css/foundation.css">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./images/icons/favicon.ico">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -21,6 +19,10 @@
   <script src="./lib/angular-animate/angular-animate.min.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/controllers.js"></script>
+  <!-- Foundation -->
+  <link rel="stylesheet" href="./foundation/css/foundation.css">
+  <script src="./foundation/js/foundation.js"></script>
+  <script src="./foundation/js/foundation.reveal.js"></script>
   <!-- Repsonsive Tables -->
   <script src="./responsive-tables/responsive-tables.js"></script>
   <link rel="stylesheet" href="./responsive-tables/responsive-tables.css">
@@ -35,38 +37,8 @@
   <div class = "row" ng-controller='ListCtrl'>
     <div id = "content" class = "small-12 large-8 large-centered columns">
       <h1>CS 241 Contest Page</h1>
-      <input type="search" ng-model="query" placeholder="filter students..." />
-        Sort By:<br/>
-      <select ng-model="fiter_opts" ng-options="opt as opt.label for opt in options">
-      </select>
-      <input type="radio" ng-model="reverse" ng-value="false">Ascending
-      <input type="radio" ng-model="reverse" ng-value="true">Descending
-      <!-- <table class = "responsive" width = "100%;">
-        <thead>
-          <tr>
-            <th>Nickname</th>
-            <th ng-repeat="testcase in students[0].test_cases">
-              {{testcase.name}}
-            </th>
-            <th>Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="student in students | filter:query | orderBy:fiter_opts.value:reverse">
-            <th>[{{$index + 1}}]{{ student.nickname }}</th>
-            <td ng-repeat="testcase in student.test_cases" ng-class="testcase.pts_earned == testcase.total_pts ? 'pass': 'fail'">
-              <div>
-                {{testcase.pts_earned}}/{{testcase.total_pts}} pts<br/>
-                {{testcase.runtime}} secs<br/>
-                {{testcase.max_memory}} bytes<br/>
-                {{testcase.pts_earned == testcase.total_pts ? "pass": "fail"}}
-              </div>
-            </td>
-            <td>{{student.time_stamp}}</td>
-          </tr>
-        </tbody>
-      </table> -->
     </div>
   </div>
+  <script>$(document).foundation();</script>
 </body>
 </html>
