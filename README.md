@@ -14,9 +14,31 @@ grunt uglify
 grunt compass:dev
 grunt compass:foundation
 grunt
-``` 
+```
 
 ## What do I need to do to use this?
 1. Build the project by running grunt
 2. Host the 'public' folder on a webserver (I recommend web.engr.illinois.edu)
 3. Have a script update the json files in the 'public/data/' folder
+
+##  JSON Schema
+```javascript
+The main json is an array of student objects.
+
+The student schema is defined as
+{
+  "test_cases": [TestCase],
+  "nickname" : String,
+  "time-stramp": String
+}
+
+The TestCase schema is
+{
+  "name": String,
+  "total_pts": Number,
+  "pts_earned": Number,
+  "max_memory": Number,
+  "runtime": Number
+  // max_memory is in bytes and runtime is in seconds
+}
+```

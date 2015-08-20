@@ -37,7 +37,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         modal
           .append($('<h2 id="'+i+name+'Title">'+name+' Debug Log</h2>'))
           .append($('<p class="lead">Terminal Output</p>'))
-          .append($('<textarea class = "terminal" cols="80" rows="15">'+valgrind+'</textarea>'))
+          .append($('<code class = "terminal">'+valgrind+'</code>'))
           .append($('<a class="close-reveal-modal" aria-label="Close">&#215;</a>'))
         return modal;
       }
