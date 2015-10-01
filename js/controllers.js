@@ -89,15 +89,15 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
           leftColumns: 1
       } );
       // Hack to resize the table correctly
-      var timeoutHandle = $(window).setTimeout(function(){
+      var timeoutHandle = setTimeout(function(){
           $(window).resize();
-      }, 1000);
+      }, 500);
 
       $(":input").keyup(function(e) {
-          $(window).clearTimeout(timeoutHandle);
-          timeoutHandle = $(window).setTimeout(function(){
+          clearTimeout(timeoutHandle);
+          timeoutHandle = setTimeout(function(){
               $(window).resize();
-          }, 1000);
+          }, 500);
       });
     });
   }]);
