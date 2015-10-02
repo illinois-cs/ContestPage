@@ -12,6 +12,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       };
 
       $scope.students = students;
+      console.log(new Date());
       var table = $("<table></table>");
 
       var thead = $("<thead></thead>");
@@ -75,9 +76,9 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         tbody.append(tBodyRow);
       }
       table.append(tbody);
-
+      $("#loading").remove();
       $("#content").append(table);
-
+      console.log(new Date());
       var dataTable = table.DataTable( {
             scrollY:        "800px",
             scrollX:        true,
@@ -88,6 +89,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       new $.fn.dataTable.FixedColumns( dataTable, {
           leftColumns: 1
       } );
+      console.log(new Date());
       // Hack to resize the table correctly
       var timeoutHandle = setTimeout(function(){
           $(window).resize();
