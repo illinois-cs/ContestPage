@@ -32,13 +32,13 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         return function () {$("#"+i+name).foundation('reveal', 'open')};
       }
 
-      var makeModel = function (i, name, output) {
+      var makeModal = function (i, name, output) {
         var modal = $('<div id="'+i+name+'" class="reveal-modal medium" data-reveal aria-labelledby="'+i+name+'Title" aria-hidden="true" role="dialog"></div>');
-        var valgrind = "Checking for memory leaks...\nTrying to compile your code...\nSuccessfully compiled your code..\n==9109== Memcheck, a memory error detector\n==9109== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9109== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9109== Command: timeout -k 5 -s INT 15 ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9109==\n==9111== Memcheck, a memory error detector\n==9111== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9111== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9111== Command: ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9111==\n==9109== Warning: ignored attempt to set SIGKILL handler in sigaction();\n==9109==the SIGKILL signal is uncatchable'\n"
+        // var valgrind = "Checking for memory leaks...\nTrying to compile your code...\nSuccessfully compiled your code..\n==9109== Memcheck, a memory error detector\n==9109== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9109== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9109== Command: timeout -k 5 -s INT 15 ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9109==\n==9111== Memcheck, a memory error detector\n==9111== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9111== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9111== Command: ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9111==\n==9109== Warning: ignored attempt to set SIGKILL handler in sigaction();\n==9109==the SIGKILL signal is uncatchable'\n"
         modal
           .append($('<h2 id="'+i+name+'Title">'+name+' Debug Log</h2>'))
           .append($('<p class="lead">Terminal Output</p>'))
-          .append($('<pre class = "terminal">'+valgrind+'</pre>'))
+          .append($('<pre class = "terminal">'+output+'</pre>'))
           .append($('<a class="close-reveal-modal" aria-label="Close">&#215;</a>'))
         return modal;
       }
@@ -66,7 +66,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
           tBodyRow.append(
               $("<td></td>")
                 .append(datum)
-                .append(makeModel(i,testcase.name))
+                .append(makeModal(i,testcase.name, testcase.output))
                 .addClass(testcase.pts_earned == testcase.total_pts ? "pass": "fail")
             );
         }
