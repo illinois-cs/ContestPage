@@ -29,7 +29,7 @@ The student schema is defined as
 {
   "test_cases": [TestCase],
   "nickname" : String,
-  "time-stramp": String
+  "time_stamp": String
 }
 
 The TestCase schema is
@@ -38,7 +38,8 @@ The TestCase schema is
   "total_pts": Number,
   "pts_earned": Number,
   "max_memory": Number,
-  "runtime": Number
+  "runtime": Number,
+  "output": String
   // max_memory is in bytes and runtime is in seconds
 }
 ```
