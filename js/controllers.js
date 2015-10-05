@@ -23,7 +23,8 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         headRow.append($("<th>"+testcase.name+"</th>"));
       }
       headRow.append($("<th>Total Time</th>"));
-      headRow.append($("<th>Total Memory</th>"));
+      headRow.append($("<th>Total Max Memory</th>"));
+      headRow.append($("<th>Total Avg Memory</th>"));
       headRow.append($("<th>Timestamp</th>"));
       thead.append(headRow);
       table.append(thead);
@@ -51,17 +52,20 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         tBodyRow.append($("<th>"+student.nickname+"</th>"));
         var testcases = student.test_cases;
         var totalTime = 0;
-        var totalMemory = 0;
+        var totalMaxMemory = 0;
+        var totalAvgMemory = 0;
         for (var j = 0; j < testcases.length; j++) {
           var testcase = testcases[j];
           var datum = $("<div></div>")
             .append($("<p>"+testcase.pts_earned+"/"+testcase.total_pts+" pts </p>"))
-            .append($("<p>"+testcase.runtime+" secs </p>"))
-            .append($("<p>"+testcase.max_memory+" bytes </p>"))
+            .append($("<p> runtime: "+testcase.runtime+" secs </p>"))
+            .append($("<p> max: "+testcase.max_memory+" bytes </p>"))
+            .append($("<p> avg: "+testcase.avg_memory+" bytes </p>"))
             .click(iifeClick(i,testcase.name));
 
           totalTime += Number(testcase.runtime);
-          totalMemory += Number(testcase.max_memory);
+          totalMaxMemory += Number(testcase.max_memory);
+          totalAvgMemory += Number(testcase.avg_memory);
 
           tBodyRow.append(
               $("<td></td>")
@@ -71,14 +75,14 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
             );
         }
         tBodyRow.append($("<td>"+totalTime.toFixed(6)+"</td>"));
-        tBodyRow.append($("<td>"+totalMemory.toFixed(6)+"</td>"));
+        tBodyRow.append($("<td>"+totalMaxMemory.toFixed(6)+"</td>"));
+        tBodyRow.append($("<td>"+totalAvgMemory.toFixed(6)+"</td>"));
         tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tbody.append(tBodyRow);
       }
       table.append(tbody);
       $("#loading").remove();
       $("#content").append(table);
-      console.log(new Date());
       var dataTable = table.DataTable( {
             scrollY:        "800px",
             scrollX:        true,
@@ -89,7 +93,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       new $.fn.dataTable.FixedColumns( dataTable, {
           leftColumns: 1
       } );
-      console.log(new Date());
+
       // Hack to resize the table correctly
       var timeoutHandle = setTimeout(function(){
           $(window).resize();
