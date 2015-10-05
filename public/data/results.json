@@ -8,7 +8,8 @@
         "name": "stream_one",
         "max_memory": "0.004715",
         "pts_earned": 6,
-        "runtime": "0.004715"
+        "runtime": "0.004715",
+        "output": "Testing..."
       },
       {
         "avg_memory": 900000001,
@@ -10268,7 +10269,7 @@
         "max_memory": "0.000744",
         "pts_earned": 6,
         "runtime": "0.000744"
-      }, 
+      },
       {
         "avg_memory": 900000001,
         "total_pts": 6.0,
