@@ -29,7 +29,8 @@ The student schema is defined as
 {
   "test_cases": [TestCase],
   "nickname" : String,
-  "time_stamp": String
+  "time_stamp": String,
+  "is_ta_solution": Boolean
 }
 
 The TestCase schema is
