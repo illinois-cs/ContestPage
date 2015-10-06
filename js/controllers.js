@@ -48,6 +48,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       headRow.append($("<th>Total Avg Memory</th>"));
       headRow.append($("<th>Rating</th>"));
       headRow.append($("<th>Timestamp</th>"));
+      headRow.append($("<th>Revision</th>"));
       thead.append(headRow);
       table.append(thead);
 
@@ -76,6 +77,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         var totalTime = 0;
         var totalMaxMemory = 0;
         var totalAvgMemory = 0;
+        var passedAll = true;
         for (var j = 0; j < testcases.length; j++) {
           var testcase = testcases[j];
           var datum = $("<div></div>")
@@ -106,8 +108,12 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         tBodyRow.append($("<td>"+totalTime.toPrecision(4)+" seconds</td>"));
         tBodyRow.append($("<td>"+totalMaxMemory.toPrecision(4)+" bytes</td>"));
         tBodyRow.append($("<td>"+totalAvgMemory.toPrecision(4)+" bytes</td>"));
-        tBodyRow.append($("<td>"+((getRating(totalMaxMemory, totalAvgMemory, totalTime) / taRating)*100).toFixed(2)+"%</td>"));
+        tBodyRow.append(
+            $("<td>"+((getRating(totalMaxMemory, totalAvgMemory, totalTime) / taRating)*100).toFixed(2)+"%</td>")
+            .addClass()
+        );
         tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
+        tBodyRow.append($("<td>"+student.last_revision+"</td>"));
         tbody.append(tBodyRow);
       }
       table.append(tbody);

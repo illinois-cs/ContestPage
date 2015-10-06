@@ -24,6 +24,15 @@ td, th{
 	white-space: nowrap;
 }
 
+td, tr, th {
+	padding:0;
+}
+p {
+	line-height: 0 !important;
+	margin-top: 1em !important;
+	margin-bottom: 1em !important;
+}
+
 .terminal {
 	background-color: black;
 	color: white;
