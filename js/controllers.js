@@ -11,8 +11,29 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
          .substring(0,15);
       };
 
+      var getRating = function(totalMaxMemory, totalAvgMemory, totalRuntime) {
+          return .6 * Number(totalMaxMemory) + .2 * Number(totalAvgMemory) + .2 * Number(totalRuntime);
+      }
+
       $scope.students = students;
-      console.log(new Date());
+      var ta;
+      for (var i = 0; i < students.length; i++) {
+          var student = students[i];
+          if (student.is_ta_solution) {
+              ta = student;
+              break;
+          }
+      }
+      var taTotalMaxMemory = 0;
+      var taTotalAvgMemory = 0;
+      var taTotalRuntime = 0;
+      for (var i = 0; i < ta.test_cases.length; i++) {
+          var testcase =  ta.test_cases[i];
+          taTotalMaxMemory += Number(testcase.max_memory);
+          taTotalAvgMemory += Number(testcase.avg_memory);
+          taTotalRuntime += Number(testcase.runtime);
+      }
+      var taRating = getRating(taTotalMaxMemory, taTotalAvgMemory, taTotalRuntime);
       var table = $("<table></table>");
 
       var thead = $("<thead></thead>");
@@ -25,6 +46,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       headRow.append($("<th>Total Time</th>"));
       headRow.append($("<th>Total Max Memory</th>"));
       headRow.append($("<th>Total Avg Memory</th>"));
+      headRow.append($("<th>Rating</th>"));
       headRow.append($("<th>Timestamp</th>"));
       thead.append(headRow);
       table.append(thead);
@@ -57,26 +79,34 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         for (var j = 0; j < testcases.length; j++) {
           var testcase = testcases[j];
           var datum = $("<div></div>")
-            .append($("<p>"+testcase.pts_earned+"/"+testcase.total_pts+" pts </p>"))
-            .append($("<p> runtime: "+testcase.runtime+" secs </p>"))
-            .append($("<p> max: "+testcase.max_memory+" bytes </p>"))
-            .append($("<p> avg: "+testcase.avg_memory+" bytes </p>"))
+            // .append($("<p>"+testcase.pts_earned+"/"+testcase.total_pts+" pts </p>"))
+            .append($("<p> Runtime: "+Number(testcase.runtime).toPrecision(4)+" secs </p>"))
+            .append($("<p> Max Memory: "+Number(testcase.max_memory).toPrecision(4)+" bytes </p>"))
+            .append($("<p> Avg Memory: "+Number(testcase.avg_memory).toPrecision(4)+" bytes </p>"))
             .click(iifeClick(i,testcase.name));
 
           totalTime += Number(testcase.runtime);
           totalMaxMemory += Number(testcase.max_memory);
           totalAvgMemory += Number(testcase.avg_memory);
-
+          var status = "";
+          if (student.is_ta_solution) {
+              status = "ta";
+          } else if (testcase.pts_earned == testcase.total_pts) {
+              status = "pass";
+          } else {
+              status = "fail";
+          }
           tBodyRow.append(
               $("<td></td>")
                 .append(datum)
                 .append(makeModal(i,testcase.name, testcase.output))
-                .addClass(testcase.pts_earned == testcase.total_pts ? "pass": "fail")
+                .addClass(status)
             );
         }
-        tBodyRow.append($("<td>"+totalTime.toFixed(6)+"</td>"));
-        tBodyRow.append($("<td>"+totalMaxMemory.toFixed(6)+"</td>"));
-        tBodyRow.append($("<td>"+totalAvgMemory.toFixed(6)+"</td>"));
+        tBodyRow.append($("<td>"+totalTime.toPrecision(4)+" seconds</td>"));
+        tBodyRow.append($("<td>"+totalMaxMemory.toPrecision(4)+" bytes</td>"));
+        tBodyRow.append($("<td>"+totalAvgMemory.toPrecision(4)+" bytes</td>"));
+        tBodyRow.append($("<td>"+((getRating(totalMaxMemory, totalAvgMemory, totalTime) / taRating)*100).toFixed(2)+"%</td>"));
         tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tbody.append(tBodyRow);
       }
