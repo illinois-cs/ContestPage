@@ -47,8 +47,8 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       headRow.append($("<th>Total Max Memory</th>"));
       headRow.append($("<th>Total Avg Memory</th>"));
       headRow.append($("<th>Rating</th>"));
-      headRow.append($("<th>Timestamp</th>"));
       headRow.append($("<th>Revision</th>"));
+      headRow.append($("<th>Timestamp</th>"));
       thead.append(headRow);
       table.append(thead);
 
@@ -96,6 +96,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
           } else if (testcase.pts_earned == testcase.total_pts) {
               status = "pass";
           } else {
+              passedAll = false;
               status = "fail";
           }
           tBodyRow.append(
@@ -108,12 +109,24 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         tBodyRow.append($("<td>"+totalTime.toPrecision(4)+" seconds</td>"));
         tBodyRow.append($("<td>"+totalMaxMemory.toPrecision(4)+" bytes</td>"));
         tBodyRow.append($("<td>"+totalAvgMemory.toPrecision(4)+" bytes</td>"));
+        var normalizedRating = (getRating(totalMaxMemory, totalAvgMemory, totalTime) / taRating)*100;
+        if (!passedAll) {
+            normalizedRating = 9001;
+        }
+        var ratingStatus = "";
+        if (passedAll && normalizedRating <= 200){
+            ratingStatus = "pass";
+        } else if (passedAll && normalizedRating > 200) {
+            ratingStatus = "orange";
+        } else {
+            ratingStatus = "fail";
+        }
         tBodyRow.append(
-            $("<td>"+((getRating(totalMaxMemory, totalAvgMemory, totalTime) / taRating)*100).toFixed(2)+"%</td>")
-            .addClass()
+            $("<td>"+(normalizedRating.toFixed(2)+"%</td>"))
+            .addClass(ratingStatus)
         );
-        tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tBodyRow.append($("<td>"+student.last_revision+"</td>"));
+        tBodyRow.append($("<td>"+student.time_stamp+"</td>"));
         tbody.append(tBodyRow);
       }
       table.append(tbody);
@@ -123,7 +136,8 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
             scrollY:        "800px",
             scrollX:        true,
             scrollCollapse: true,
-            paging:         false
+            paging:         false,
+            order: [[ ta.test_cases.length + 3, "desc" ]]
         } );
 
       new $.fn.dataTable.FixedColumns( dataTable, {
