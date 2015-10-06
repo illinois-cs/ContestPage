@@ -38,6 +38,7 @@ The TestCase schema is
   "total_pts": Number,
   "pts_earned": Number,
   "max_memory": Number,
+  "avg_memory": Number,
   "runtime": Number,
   "output": String
   // max_memory is in bytes and runtime is in seconds
