@@ -137,7 +137,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
             scrollX:        true,
             scrollCollapse: true,
             paging:         false,
-            order: [[ ta.test_cases.length + 3, "desc" ]]
+            order: [[ ta.test_cases.length + 4, "asc" ]]
         } );
 
       new $.fn.dataTable.FixedColumns( dataTable, {
