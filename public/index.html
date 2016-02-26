@@ -23,7 +23,7 @@
 
 <body>
   <div ng-controller='ContestCtrl'>
-    <table >
+    <table style = "position: fixed; table-layout: fixed; width: 100%;">
         <thead>
           <tr>
             <th>Submission</th>
@@ -31,6 +31,9 @@
             <th>Rating</th>
           </tr>
         </thead>
+    </table>
+    <br/>
+    <table style = "table-layout: fixed; width: 100%;">
         <tbody>
           <tr ng-repeat="student in students" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
               <td>
@@ -45,9 +48,9 @@
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">
                 <!-- {{testcase}} -->
                 <div ng-if="testcase.pts_earned == testcase.total_pts">
-                  <p>Runtime: {{testcase.runtime}} secs</p>
-                  <p>Max Memory: {{testcase.max_memory}} bytes </p>
-                  <p>Avg Memory: {{testcase.avg_memory}} bytes </p>
+                  <p>{{testcase.runtime}} secs</p>
+                  <p>{{testcase.max_memory}} bytes </p>
+                  <p>{{testcase.avg_memory}} bytes </p>
                 </div>
                 <div ng-if="testcase.pts_earned != testcase.total_pts">
                   FAILED
