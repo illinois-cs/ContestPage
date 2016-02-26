@@ -1,21 +1,13 @@
-contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
+contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('./data/results.json').success(function(students) {
-
-      var cleanse = function (unsafe) {
-        return unsafe
-         .replace(/&/g, "&amp;")
-         .replace(/</g, "&lt;")
-         .replace(/>/g, "&gt;")
-         .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#39;")
-         .substring(0,15);
-      };
 
       var getRating = function(totalMaxMemory, totalAvgMemory, totalRuntime) {
           return .6 * Number(totalMaxMemory) + .2 * Number(totalAvgMemory) + .2 * Number(totalRuntime);
       }
 
       $scope.students = students;
+
+      // Finding TA soln
       var ta;
       for (var i = 0; i < students.length; i++) {
           var student = students[i];
@@ -24,18 +16,21 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
               break;
           }
       }
-      var taTotalMaxMemory = 0;
-      var taTotalAvgMemory = 0;
-      var taTotalRuntime = 0;
-      for (var i = 0; i < ta.test_cases.length; i++) {
-          var testcase =  ta.test_cases[i];
-          taTotalMaxMemory += Number(testcase.max_memory);
-          taTotalAvgMemory += Number(testcase.avg_memory);
-          taTotalRuntime += Number(testcase.runtime);
+      if (ta != undefined) {
+        var taTotalMaxMemory = 0;
+        var taTotalAvgMemory = 0;
+        var taTotalRuntime = 0;
+        for (var i = 0; i < ta.test_cases.length; i++) {
+            var testcase =  ta.test_cases[i];
+            taTotalMaxMemory += Number(testcase.max_memory);
+            taTotalAvgMemory += Number(testcase.avg_memory);
+            taTotalRuntime += Number(testcase.runtime);
+        }
+        var taRating = getRating(taTotalMaxMemory, taTotalAvgMemory, taTotalRuntime);
       }
-      var taRating = getRating(taTotalMaxMemory, taTotalAvgMemory, taTotalRuntime);
-      var table = $("<table></table>");
 
+      // Generate table headers
+      var table = $("<table></table>");
       var thead = $("<thead></thead>");
       var headRow = $("<tr></tr>");
       headRow.append($("<th>Nickname</th>"));
@@ -52,21 +47,8 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       thead.append(headRow);
       table.append(thead);
 
-      var iifeClick = function (i, name) {
-        return function () {$("#"+i+name).foundation('reveal', 'open')};
-      }
 
-      var makeModal = function (i, name, output) {
-        var modal = $('<div id="'+i+name+'" class="reveal-modal medium" data-reveal aria-labelledby="'+i+name+'Title" aria-hidden="true" role="dialog"></div>');
-        // var valgrind = "Checking for memory leaks...\nTrying to compile your code...\nSuccessfully compiled your code..\n==9109== Memcheck, a memory error detector\n==9109== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9109== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9109== Command: timeout -k 5 -s INT 15 ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9109==\n==9111== Memcheck, a memory error detector\n==9111== Copyright (C) 2002-2013, and GNU GPL'd, by Julian Seward et al.\n==9111== Using Valgrind-3.10.0 and LibVEX; rerun with -h for copyright info\n==9111== Command: ./mpwearables/svn/abdu2/mpwearables/wearable_server 49500 49501\n==9111==\n==9109== Warning: ignored attempt to set SIGKILL handler in sigaction();\n==9109==the SIGKILL signal is uncatchable'\n"
-        modal
-          .append($('<h2 id="'+i+name+'Title">'+name+' Debug Log</h2>'))
-          .append($('<p class="lead">Terminal Output</p>'))
-          .append($('<pre class = "terminal">'+output+'</pre>'))
-          .append($('<a class="close-reveal-modal" aria-label="Close">&#215;</a>'))
-        return modal;
-      }
-
+      // Generate Table Body
       var tbody = $("<tbody></tbody>");
       for (var i = 0; i < students.length; i++){
         var student = students[i];
@@ -78,6 +60,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
         var totalMaxMemory = 0;
         var totalAvgMemory = 0;
         var passedAll = true;
+        // Add testcases
         for (var j = 0; j < testcases.length; j++) {
           var testcase = testcases[j];
           var datum = $("<div></div>")
@@ -133,6 +116,7 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       $("#loading").remove();
       $("#content").append(table);
       var dataTable = table.DataTable( {
+            bFilter:        false,
             scrollY:        "800px",
             scrollX:        true,
             scrollCollapse: true,
@@ -148,12 +132,5 @@ contestApp.controller('ListCtrl', ['$scope', '$http', function ($scope, $http) {
       var timeoutHandle = setTimeout(function(){
           $(window).resize();
       }, 100);
-
-      $(":input").keyup(function(e) {
-          clearTimeout(timeoutHandle);
-          timeoutHandle = setTimeout(function(){
-              $(window).resize();
-          }, 100);
-      });
     });
   }]);

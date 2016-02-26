@@ -170,6 +170,1106 @@
       "avg_memory": 364469408.812353,
       "total_pts": 1.0,
       "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
+      "max_memory": 64829880.0,
+      "pts_earned": 1.0,
+      "runtime": 0.11428
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-10",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.086171
+    },
+    {
+      "avg_memory": 402642786.276393,
+      "total_pts": 1.0,
+      "name": "part2_tester-11",
+      "max_memory": 402653300.0,
+      "pts_earned": 1.0,
+      "runtime": 0.084093
+    }
+  ],
+  "is_ta_solution": false,
+  "last_revision": 17887,
+  "total_pts_earned": 11.0,
+  "total_max_memory": 8421389268.0,
+  "time_stamp": "2015-10-05 15:22:29.514021",
+  "nickname": "Too Cool For A Nickname!",
+  "total_avg_memory": 5097949857.766924
+},
+{
+  "total_time": 15.195701999999999,
+  "test_cases": [
+    {
+      "avg_memory": 32844.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-1",
+      "max_memory": 32844.0,
+      "pts_earned": 1.0,
+      "runtime": 2.211743
+    },
+    {
+      "avg_memory": 171029107.85315,
+      "total_pts": 1.0,
+      "name": "part2_tester-2",
+      "max_memory": 214266016.0,
+      "pts_earned": 1.0,
+      "runtime": 1.270898
+    },
+    {
+      "avg_memory": 1048652.0,
+      "total_pts": 1.0,
+      "name": "part2_tester-3",
+      "max_memory": 1048652.0,
+      "pts_earned": 1.0,
+      "runtime": 0.323067
+    },
+    {
+      "avg_memory": 932713400.509437,
+      "total_pts": 1.0,
+      "name": "part2_tester-4",
+      "max_memory": 1610612812.0,
+      "pts_earned": 1.0,
+      "runtime": 1.490526
+    },
+    {
+      "avg_memory": 267024511.221126,
+      "total_pts": 1.0,
+      "name": "part2_tester-5",
+      "max_memory": 532063252.0,
+      "pts_earned": 1.0,
+      "runtime": 0.20519
+    },
+    {
+      "avg_memory": 901886421.809524,
+      "total_pts": 1.0,
+      "name": "part2_tester-6",
+      "max_memory": 1610612840.0,
+      "pts_earned": 1.0,
+      "runtime": 4.41276
+    },
+    {
+      "avg_memory": 706650693.230769,
+      "total_pts": 1.0,
+      "name": "part2_tester-7",
+      "max_memory": 1550960516.0,
+      "pts_earned": 1.0,
+      "runtime": 2.190579
+    },
+    {
+      "avg_memory": 947809245.777778,
+      "total_pts": 1.0,
+      "name": "part2_tester-8",
+      "max_memory": 1431655856.0,
+      "pts_earned": 1.0,
+      "runtime": 2.806395
+    },
+    {
+      "avg_memory": 364469408.812353,
+      "total_pts": 1.0,
+      "name": "part2_tester-9",
       "max_memory": 664829880.0,
       "pts_earned": 1.0,
       "runtime": 0.11428

@@ -1,1 +1,1 @@
-var contestApp = angular.module('contestApp', ['ngRoute','ngAnimate']);
+var contestApp = angular.module('contestApp', []);
