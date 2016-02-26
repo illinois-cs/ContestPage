@@ -7,6 +7,9 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           var totalRuntime = 0;
           for (var i = 0; i < student.test_cases.length; i++) {
               var testcase =  student.test_cases[i];
+              if (testcase.pts_earned != testcase.total_pts) {
+                return -1;
+              }
               totalMaxMemory += Number(testcase.max_memory);
               totalAvgMemory += Number(testcase.avg_memory);
               totalRuntime += Number(testcase.runtime);
@@ -25,6 +28,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
          .substring(0,15);
       };
 
+
       var ta;
       for (var i = 0; i < students.length; i++) {
           if (students[i].is_ta_solution) {
@@ -34,7 +38,8 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       }
       var taRating = ta != undefined ? getRating(ta) : 1;
       $scope.getNormalizedRating = function(student) {
-        return (getRating(student) / taRating * 100).toFixed(2);
+        var studentRating = getRating(student);
+        return studentRating == -1 ? Infinity : (studentRating / taRating) * 100;
       }
 
       // Keeps all the tables in sync
@@ -47,7 +52,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
 
       // Resize things
       $( window ).resize(function() {
-        $(".xscroll, .xscroll > div").width($(window).width() - $(".col1").width());
+        $(".xscroll, .xscroll > div").width($(window).width() - $(".col1").width() - 20);
         $(".col1, #scrollTable").height($(window).height() - $(".col1").offset().top);
       });
       $( window ).resize();
