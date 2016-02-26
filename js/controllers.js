@@ -87,7 +87,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
 
       // Resize things
       $( window ).resize(function() {
-        $(".xscroll, .xscroll > div").width($(window).width() - $(".col1").width() - 20);
+        $(".xscroll, .xscroll > div").width($(window).width() - 1.2*$(".col1").width());
         $(".col1, #scrollTable").height($(window).height() - $(".col1").offset().top);
       });
       $( window ).resize();

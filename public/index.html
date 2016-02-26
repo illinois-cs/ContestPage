@@ -21,7 +21,7 @@
 
 <body>
   <h1 style = "font-size: 4em">CS 241 Contest Page</h1>
-  <div ng-controller='ContestCtrl'>
+  <div ng-controller='ContestCtrl' style = "margin: 0 auto;">
     <div style='float:left;'>
       <div>
         <table>
@@ -33,7 +33,7 @@
 
       <div class='col1'>
         <table>
-          <tr ng-repeat="student in students | orderBy: getNormalizedRating" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
+          <tr ng-repeat="student in students | orderBy: getNormalizedRating" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);' ng-style="student.is_ta_solution? {'background-color':'#FFFF9F'}:{}">
             <td>
               <div>
                 <p><strong>{{cleanse(student.nickname)}}</strong></p>
@@ -60,7 +60,7 @@
       <div style='height:800px;' id='scrollTable'>
         <table>
           <tr ng-repeat="student in students | orderBy: getNormalizedRating" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
-              <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">
+              <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'" ng-style="student.is_ta_solution? {'background-color':'#FFFF9F'}:{}">
                 <div>
                   <div ng-if="testcase.pts_earned == testcase.total_pts">
                     <p>
