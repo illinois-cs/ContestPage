@@ -63,9 +63,11 @@
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">
                 <div>
                   <div ng-if="testcase.pts_earned == testcase.total_pts">
-                    <p>{{testcase.runtime}} secs</p>
-                    <p>{{testcase.max_memory}} bytes </p>
-                    <p>{{testcase.avg_memory}} bytes </p>
+                    <p>
+                      <b>{{formatTime(testcase.runtime)[0]}}</b>{{formatTime(testcase.runtime)[1]}},
+                      <b>{{formatMem(testcase.max_memory)[0]}}</b>{{formatMem(testcase.max_memory)[1]}},
+                      <b>{{formatMem(testcase.avg_memory)[0]}}</b>{{formatMem(testcase.avg_memory)[1]}}
+                    </p>
                   </div>
                   <div ng-if="testcase.pts_earned != testcase.total_pts">
                     FAILED

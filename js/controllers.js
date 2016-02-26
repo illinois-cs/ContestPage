@@ -27,7 +27,42 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
          .replace(/'/g, "&#39;")
          .substring(0,15);
       };
-
+      $scope.formatMem = function(t) {
+          var unit = "B";
+          var b = 1024;
+          if (t > b) {
+              t /= b;
+              unit = "KB";
+              if (t > b) {
+                  t /= b;
+                  unit = "MB";
+                  if (t > b) {
+                      t /= b;
+                      unit = "GB";
+                  }
+              }
+              t = t.toFixed(2);
+          }
+          return [t, unit];
+      };
+      $scope.formatTime = function(t) {
+          t *= 1e9;
+          var unit = "ns";
+          if (t > 1000) {
+              t /= 1000;
+              unit = "Î¼s";
+              if (t > 1000) {
+                  t /= 1000;
+                  unit = "ms";
+                  if (t > 1000) {
+                      t /= 1000;
+                      unit = "s";
+                  }
+              }
+              t = t.toFixed(2);
+          }
+          return [t,unit];
+      };
 
       var ta;
       for (var i = 0; i < students.length; i++) {
