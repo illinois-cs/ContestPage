@@ -36,6 +36,25 @@ td, th{
 td, tr, th {
 	padding:0;
 }
+.col1
+{
+    overflow: hidden;
+    height: 800px;
+}
+.xscroll
+{
+    overflow: auto;
+    width: 800px;
+}
+.xscroll td > div {
+		margin: 0 auto; 
+		width: 200px !important;
+}
+.xscroll > div{
+    overflow: auto;
+    width: 800px;
+}
+
 p {
 	line-height: 0 !important;
 	margin-top: 1em !important;
@@ -46,23 +65,4 @@ p {
 	background-color: black;
 	color: white;
 	font-family: monospace;
-}
-
-.col1
-{
-    overflow: hidden;
-    height: 800px;
-}
-
-.xscroll
-{
-    overflow: auto;
-    width: 800px;
-}
-.xscroll td > div {
-		width: 200px !important;
-}
-.xscroll > div{
-    overflow: auto;
-    width: 800px;
 }

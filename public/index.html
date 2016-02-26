@@ -20,6 +20,7 @@
 
 
 <body>
+  <h1 style = "font-size: 4em">CS 241 Contest Page</h1>
   <div ng-controller='ContestCtrl'>
     <div style='float:left;'>
       <div>
@@ -44,9 +45,9 @@
           </tr>
         </table>
       </div>
-  </div>
+    </div>
 
-  <div style='float:left;' class='xscroll'>
+    <div style='float:left;' class='xscroll'>
       <div id='headers' style = "overflow:hidden;">
         <table>
           <tr>
@@ -56,7 +57,7 @@
         </table>
       </div>
 
-      <div style='height:800px;' id='sideTable'>
+      <div style='height:800px;' id='scrollTable'>
         <table>
           <tr ng-repeat="student in students" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">

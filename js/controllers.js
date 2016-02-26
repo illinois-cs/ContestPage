@@ -36,12 +36,22 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.getNormalizedRating = function(student) {
         return (getRating(student) / taRating * 100).toFixed(2);
       }
-      $('#sideTable').scroll(function(){
-        var a = $("#sideTable").scrollTop();
-        var b = $("#sideTable").scrollLeft();
+
+      // Keeps all the tables in sync
+      $('#scrollTable').scroll(function(){
+        var a = $("#scrollTable").scrollTop();
+        var b = $("#scrollTable").scrollLeft();
         $(".col1").scrollTop(a);
         $("#headers").scrollLeft(b);
       });
+
+      // Resize things
+      $( window ).resize(function() {
+        $(".xscroll, .xscroll > div").width($(window).width() - $(".col1").width());
+        $(".col1, #scrollTable").height($(window).height() - $(".col1").offset().top);
+      });
+      $( window ).resize();
+
 
     });
   }]);
