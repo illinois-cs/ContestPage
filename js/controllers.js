@@ -36,5 +36,12 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.getNormalizedRating = function(student) {
         return (getRating(student) / taRating * 100).toFixed(2);
       }
+      $('#sideTable').scroll(function(){
+        var a = $("#sideTable").scrollTop();
+        var b = $("#sideTable").scrollLeft();
+        $(".col1").scrollTop(a);
+        $("#headers").scrollLeft(b);
+      });
+
     });
   }]);

@@ -14,55 +14,71 @@
   <script src="./lib/angular/angular.min.js"></script>
   <script src="./js/app.js"></script>
   <script src="./js/controllers.js"></script>
-  <!-- Foundation -->
-  <script src="./foundation/js/foundation.min.js"></script>
-  <link rel="stylesheet" href="./foundation/css/foundation.css">
   <!-- Misc. -->
   <script src="./js/script.js"></script>
 </head>
 
+
 <body>
   <div ng-controller='ContestCtrl'>
-    <table style = "position: fixed; table-layout: fixed; width: 100%;">
-        <thead>
+    <div style='float:left;'>
+      <div>
+        <table>
           <tr>
-            <th>Submission</th>
-            <th ng-repeat="testcase in students[0].test_cases">{{testcase.name}}</th>
-            <th>Rating</th>
+            <td>Submission</td>
           </tr>
-        </thead>
-    </table>
-    <br/>
-    <table style = "table-layout: fixed; width: 100%;">
-        <tbody>
+        </table>
+      </div>
+
+      <div class='col1'>
+        <table>
           <tr ng-repeat="student in students" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
-              <td>
-                <!-- Submission -->
-                <div>
-                  <p>{{cleanse(student.nickname)}}</p>
-                  <p>Revision: {{student.last_revision}}</p>
-                  <p>{{student.time_stamp}}</p>
-                  <p>Rank: {{$index + 1}} </p>
-                </div>
-              </td>
+            <td>
+              <div>
+                <p>{{cleanse(student.nickname)}}</p>
+                <p>Revision: {{student.last_revision}}</p>
+                <p>{{student.time_stamp}}</p>
+                <p>Rank: {{$index + 1}} </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+  <div style='float:left;' class='xscroll'>
+      <div id='headers' style = "overflow:hidden;">
+        <table>
+          <tr>
+            <td ng-repeat="testcase in students[0].test_cases"><div>{{testcase.name}}</div></td>
+            <td><div style = "width:250px">Rating</div></td>
+          </tr>
+        </table>
+      </div>
+
+      <div style='height:800px;' id='sideTable'>
+        <table>
+          <tr ng-repeat="student in students" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">
-                <!-- {{testcase}} -->
-                <div ng-if="testcase.pts_earned == testcase.total_pts">
-                  <p>{{testcase.runtime}} secs</p>
-                  <p>{{testcase.max_memory}} bytes </p>
-                  <p>{{testcase.avg_memory}} bytes </p>
-                </div>
-                <div ng-if="testcase.pts_earned != testcase.total_pts">
-                  FAILED
+                <div>
+                  <div ng-if="testcase.pts_earned == testcase.total_pts">
+                    <p>{{testcase.runtime}} secs</p>
+                    <p>{{testcase.max_memory}} bytes </p>
+                    <p>{{testcase.avg_memory}} bytes </p>
+                  </div>
+                  <div ng-if="testcase.pts_earned != testcase.total_pts">
+                    FAILED
+                  </div>
                 </div>
               </td>
               <td>
-                <!-- Rating -->
-                {{getNormalizedRating(student)}} %
+                <div>
+                  {{getNormalizedRating(student)}} %
+                </div>
               </td>
           </tr>
-        </tbody>
-    </table>
+        </table>
+      </div>
   </div>
   <!-- <script>$(document).foundation();</script> -->
   <!-- Live Reload -->
