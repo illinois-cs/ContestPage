@@ -1,13 +1,3 @@
-// Takes in a string and escapes all unsafe characters
-var cleanse = function (unsafe) {
-  return unsafe
-   .replace(/&/g, "&amp;")
-   .replace(/</g, "&lt;")
-   .replace(/>/g, "&gt;")
-   .replace(/"/g, "&quot;")
-   .replace(/'/g, "&#39;")
-   .substring(0,15);
-};
 // returns an iife
 var iifeClick = function (i, name) {
   return function () {$("#"+i+name).foundation('reveal', 'open')};

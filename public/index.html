@@ -8,8 +8,6 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="./images/icons/favicon.ico">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <!-- Misc. -->
-  <script src="./js/script.js"></script>
   <!-- jQuery -->
   <script src="./lib/jquery-2.1.3.min/index.js"></script>
   <!-- Angular -->
@@ -17,25 +15,53 @@
   <script src="./js/app.js"></script>
   <script src="./js/controllers.js"></script>
   <!-- Foundation -->
+  <script src="./foundation/js/foundation.min.js"></script>
   <link rel="stylesheet" href="./foundation/css/foundation.css">
-  <script src="./foundation/js/foundation.js"></script>
-  <script src="./foundation/js/foundation/foundation.reveal.js"></script>
-  <!-- Data Tables -->
-  <script src="./DataTables/media/js/jquery.dataTables.min.js"></script>
-  <script src="./DataTables/extensions/FixedColumns/js/dataTables.fixedColumns.min.js"></script>
+  <!-- Misc. -->
+  <script src="./js/script.js"></script>
 </head>
 
 <body>
-  <div class = "row" ng-controller='ContestCtrl'>
-    <div id = "content" class = "small-12 large-12 columns">
-      <h1>CS 241 Contest Page</h1>
-      <div id = "loading">
-          <h2>The intern is manually generating the HTML for this contest page for you :)</h2>
-          <h3>Please be very patient while said intern is being overworked...</h3>
-      </div>
-    </div>
+  <div ng-controller='ContestCtrl'>
+    <table >
+        <thead>
+          <tr>
+            <th>Submission</th>
+            <th ng-repeat="testcase in students[0].test_cases">{{testcase.name}}</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="student in students" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
+              <td>
+                <!-- Submission -->
+                <div>
+                  <p>{{cleanse(student.nickname)}}</p>
+                  <p>Revision: {{student.last_revision}}</p>
+                  <p>{{student.time_stamp}}</p>
+                  <p>Rank: {{$index + 1}} </p>
+                </div>
+              </td>
+              <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'">
+                <!-- {{testcase}} -->
+                <div ng-if="testcase.pts_earned == testcase.total_pts">
+                  <p>Runtime: {{testcase.runtime}} secs</p>
+                  <p>Max Memory: {{testcase.max_memory}} bytes </p>
+                  <p>Avg Memory: {{testcase.avg_memory}} bytes </p>
+                </div>
+                <div ng-if="testcase.pts_earned != testcase.total_pts">
+                  FAILED
+                </div>
+              </td>
+              <td>
+                <!-- Rating -->
+                {{getNormalizedRating(student)}} %
+              </td>
+          </tr>
+        </tbody>
+    </table>
   </div>
-  <script>$(document).foundation();</script>
+  <!-- <script>$(document).foundation();</script> -->
   <!-- Live Reload -->
   <script src="http://localhost:35729/livereload.js"></script>
 </body>
