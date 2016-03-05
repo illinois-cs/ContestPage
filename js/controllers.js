@@ -5,6 +5,12 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           var totalMaxMemory = 0;
           var totalAvgMemory = 0;
           var totalRuntime = 0;
+          if(student == undefined) {
+            console.log("HWOAOOA")
+          }
+          if(student.test_cases == undefined) {
+            console.log(student)
+          }
           for (var i = 0; i < student.test_cases.length; i++) {
               var testcase =  student.test_cases[i];
               if (testcase.pts_earned != testcase.total_pts) {
@@ -73,6 +79,8 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       }
       var taRating = ta != undefined ? getRating(ta) : 1;
       $scope.getNormalizedRating = function(student) {
+        // Hack for now ...
+        if(Object.keys(student).length < 2) return Infinity;
         var studentRating = getRating(student);
         return studentRating == -1 ? Infinity : (studentRating / taRating) * 100;
       }
