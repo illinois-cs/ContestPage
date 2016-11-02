@@ -1,14 +1,14 @@
 contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('./data/results.json').success(function(students) {
       // Hard coding TA statistics to stop students from bleeding too hard
-      var ta = {
+      var ta =   {
           "total_time": 33.517323999999995,
           "test_cases": [
             {
-              "avg_memory": 1000000.0,
+              "avg_memory": 4096.0,
               "total_pts": 1.0,
               "name": "part2_tester-1",
-              "max_memory": 1000000.0,
+              "max_memory": 4096.0,
               "pts_earned": 1.0,
               "runtime": 5.988813
             },
@@ -101,13 +101,6 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           "nickname": "glibc",
           "total_avg_memory": 4644371854.713424
         }
-
-      // Swapping out ta with hardcoding:
-      for (var i = 0; i < students.length; i++) {
-          if(students[i].is_ta_solution) {
-            students[i] = ta;
-          }
-      }
 
       var getRating = function(student) {
           if(ta == undefined) {
