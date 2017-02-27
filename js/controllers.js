@@ -155,7 +155,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
               return a + b;
           }
           return 100 * student_ta_test_cases.map(stat).reduce(add, 0) / 
-	     (3 * student.test_cases.length);
+	         (3 * student.test_cases.length);
       }
       $scope.students = students;
 
