@@ -144,14 +144,18 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
               if (student_test_case.pts_earned != student_test_case.total_pts) {
                 return Infinity;
               }
-              return .2 * (student_test_case.avg_memory / ta_test_case.avg_memory)
-               + .2 * (student_test_case.runtime / ta_test_case.runtime)
-               + .6 * (student_test_case.max_memory / ta_test_case.max_memory)
+              return Math.log2(ta_test_case.avg_memory / 
+	                       student_test_case.avg_memory + 1)
+               + Math.log2(ta_test_case.runtime /
+	                   student_test_case.runtime + 1)
+               + Math.log2(ta_test_case.max_memory / 
+	                   student_test_case.max_memory + 1);
           }
           function add(a, b) {
               return a + b;
           }
-          return 100 * student_ta_test_cases.map(stat).reduce(add, 0) / student.test_cases.length;
+          return 100 * student_ta_test_cases.map(stat).reduce(add, 0) / 
+	     (3 * student.test_cases.length);
       }
       $scope.students = students;
 
