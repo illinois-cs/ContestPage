@@ -142,7 +142,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
               student_test_case = student_ta_test_case[0]
               ta_test_case = student_ta_test_case[1]
               if (student_test_case.pts_earned != student_test_case.total_pts) {
-                return Infinity;
+                return 0;
               }
               return Math.log2(ta_test_case.avg_memory / 
 	                       student_test_case.avg_memory + 1)
@@ -208,9 +208,9 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.getNormalizedRating = function(student) {
         // var taRating = ta != undefined ? getRating(ta) : 1;
         // Hack for now ...
-        if(Object.keys(student).length < 2) return Infinity;
+        if(Object.keys(student).length < 2) return 0;
         var studentRating = getRating(student, ta);
-        return studentRating == -1 ? Infinity : studentRating;
+        return studentRating == -1 ? 0 : studentRating;
       }
 
       // Keeps all the tables in sync
