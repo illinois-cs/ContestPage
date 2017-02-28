@@ -213,7 +213,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         // Hack for now ...
         if(Object.keys(student).length < 2) return 0;
         var studentRating = getRating(student, ta);
-        return studentRating == -1 ? 0 : studentRating;
+        return studentRating <= 0 ? 0 : -studentRating;
       }
 
       // Keeps all the tables in sync
