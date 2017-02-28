@@ -138,23 +138,26 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
 
           student_ta_test_cases = zip([student.test_cases, ta.test_cases])
           stat = function(student_ta_test_case) {
-
               student_test_case = student_ta_test_case[0]
               ta_test_case = student_ta_test_case[1]
               if (student_test_case.pts_earned != student_test_case.total_pts) {
-                return 0;
+                return -Infinity;
               }
-              return Math.log2(ta_test_case.avg_memory / 
-	                       student_test_case.avg_memory + 1)
-               + Math.log2(ta_test_case.runtime /
-	                   student_test_case.runtime + 1)
-               + Math.log2(ta_test_case.max_memory / 
-	                   student_test_case.max_memory + 1);
+              var ta_run = ta_test_case.runtime + 1e-6;
+              var st_run = student_test_case.runtime > 0 ? (student_test_case.runtime + 1e-6) : Infinity;
+              var ta_avg = ta_test_case.avg_memory + 1e3;
+              var st_avg = student_test_case.avg_memory > 0 ? (student_test_case.avg_memory + 1e3) : Infinity;
+              var ta_max = ta_test_case.max_memory + 1e3;
+              var st_max = student_test_case.max_memory > 0 ? (student_test_case.max_memory + 1e3) : Infinity;
+              return (
+                Math.log2(ta_run / st_run + 1) +
+                Math.log2(ta_avg / st_avg + 1) +
+                Math.log2(ta_max / st_max + 1));
           }
           function add(a, b) {
               return a + b;
           }
-          return 100 * student_ta_test_cases.map(stat).reduce(add, 0) / 
+          return 100 * student_ta_test_cases.map(stat).reduce(add, 0) /
 	         (3 * student.test_cases.length);
       }
       $scope.students = students;
@@ -191,7 +194,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           var unit = "ns";
           if (t > 1000) {
               t /= 1000;
-              unit = "Î¼s";
+              unit = "us";
               if (t > 1000) {
                   t /= 1000;
                   unit = "ms";
