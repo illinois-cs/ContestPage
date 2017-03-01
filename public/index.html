@@ -40,7 +40,7 @@
 
       <div class='col1'>
         <table>
-          <tr ng-repeat="student in students | orderBy: getNormalizedRating" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);' ng-style="student.is_ta_solution? {'background-color':'#FFFF9F'}:{}">
+          <tr ng-repeat="student in students | orderBy: getRatingSortOrder" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);' ng-style="student.is_ta_solution? {'background-color':'#FFFF9F'}:{}">
             <td>
               <div>
                 <p><strong>{{cleanse(student.nickname)}}</strong></p>
@@ -59,14 +59,14 @@
         <table>
           <tr>
             <td ng-repeat="testcase in students[0].test_cases" style = "background-color:rgba(225,233,241,255);"><div><h2>{{testcase.name}}</h2></div></td>
-            <td style = "background-color:rgba(225,233,241,255);"><div style = "width:250px"><h2>Rating</h2></div></td>
+            <td style = "background-color:rgba(225,233,241,255);"><div style = "width:250px"><h2>Score</h2></div></td>
           </tr>
         </table>
       </div>
 
       <div style='height:800px;' id='scrollTable'>
         <table>
-          <tr ng-repeat="student in students | orderBy: getNormalizedRating" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
+          <tr ng-repeat="student in students | orderBy: getRatingSortOrder" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'" ng-style="student.is_ta_solution? {'background-color':'#FFFF9F'}:{}">
                 <div>
                   <div ng-if="testcase.pts_earned == testcase.total_pts">
@@ -83,7 +83,7 @@
               </td>
               <td>
                 <div>
-                  {{(-getNormalizedRating(student)).toFixed(2)}}%
+                  {{getNormalizedRating(student).toFixed(2)}}%
                 </div>
               </td>
           </tr>

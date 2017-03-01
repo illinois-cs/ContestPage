@@ -15,12 +15,15 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       var getRating = function(student) {
           if(ta == undefined) {
             console.log("ta was undefined.")
+            return -Infinity;
           }
           if(student == undefined) {
             console.log("Student was undefined.")
+            return -Infinity;
           }
           if(student.test_cases == undefined) {
             console.log(student)
+            return -Infinity;
           }
 
           // http://stackoverflow.com/questions/4856717/javascript-equivalent-of-pythons-zip-function
@@ -35,7 +38,8 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
               student_test_case = student_ta_test_case[0]
               ta_test_case = student_ta_test_case[1]
               if (student_test_case.pts_earned != student_test_case.total_pts) {
-                return -Infinity;
+                // Like -Infinity, but not quite, so we can still kinda rank bad implementations
+                return -1e15;
               }
               var ta_run = ta_test_case.runtime + 1e-6;
               var st_run = student_test_case.runtime > 0 ? (student_test_case.runtime + 1e-6) : Infinity;
@@ -107,7 +111,12 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         // Hack for now ...
         if(Object.keys(student).length < 2) return 0;
         var studentRating = getRating(student, ta);
-        return studentRating <= 0 ? 0 : -studentRating;
+        return studentRating <= 0 ? 0 : studentRating;
+      }
+
+      $scope.getRatingSortOrder = function(student) {
+        if(Object.keys(student).length < 2) return Infinity;
+        return -getRating(student, ta);
       }
 
       // Keeps all the tables in sync
