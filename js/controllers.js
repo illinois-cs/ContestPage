@@ -57,22 +57,27 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
                 // Like -Infinity, but not quite, so we can still kinda rank bad implementations
                 return -1e15;
               }
-              var ta_run = ta_test_case.runtime + 1e-6;
-              var st_run = student_test_case.runtime > 0 ? (student_test_case.runtime + 1e-6) : Infinity;
-              var ta_avg = ta_test_case.avg_memory + 1e3;
-              var st_avg = student_test_case.avg_memory > 0 ? (student_test_case.avg_memory + 1e3) : Infinity;
-              var ta_max = ta_test_case.max_memory + 1e3;
-              var st_max = student_test_case.max_memory > 0 ? (student_test_case.max_memory + 1e3) : Infinity;
+              var runtime_fudge = 0.04;  // 40ms
+              var memory_fudge = 1024;  // 1KB
+              var ta_run = ta_test_case.runtime + runtime_fudge;
+              var st_run = student_test_case.runtime > 0 ?
+                (student_test_case.runtime + runtime_fudge) : Infinity;
+              var ta_avg = ta_test_case.avg_memory + memory_fudge;
+              var st_avg = student_test_case.avg_memory > 0 ?
+                (student_test_case.avg_memory + memory_fudge) : Infinity;
+              var ta_max = ta_test_case.max_memory + memory_fudge;
+              var st_max = student_test_case.max_memory > 0 ?
+                (student_test_case.max_memory + memory_fudge) : Infinity;
               return (
-                Math.log2(ta_run / st_run + 1) +
-                Math.log2(ta_avg / st_avg + 1) +
-                Math.log2(ta_max / st_max + 1));
+                (1/4) * Math.log2(ta_run / st_run + 1) +
+                (3/8) * Math.log2(ta_avg / st_avg + 1) +
+                (3/8) * Math.log2(ta_max / st_max + 1));
           }
           function add(a, b) {
               return a + b;
           }
           return 100 * student_ta_test_cases.map(stat).reduce(add, 0) /
-	         (3 * student.test_cases.length);
+	         student.test_cases.length;
       }
       $scope.students = students;
 
@@ -126,22 +131,23 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           return [t,unit];
       };
 
-      $scope.getNormalizedRating = function(student) {
-        // var taRating = ta != undefined ? getRating(ta) : 1;
-        // Hack for now ...
-        if(Object.keys(student).length < 2) return 0;
-        var studentRating = getRating(student, ta);
-        return studentRating <= 0 ? 0 : studentRating;
-      }
-
-      $scope.getRatingSortOrder = function(student) {
-        if(Object.keys(student).length < 2) return Infinity;
-        return -getRating(student, ta);
-      }
-
       $scope.stripTimestamp = function(stamp) {
         return stamp.split(".")[0];
-      }
+      };
+
+      // Set ratings
+      $.each(students, function(i, student) {
+        if (Object.keys(student).length < 2) {
+          student.normalizedRating = 0;
+          student.sortOrder = Infinity;
+          student.isPassing = false;
+        } else {
+          var rating = getRating(student, ta);
+          student.normalizedRating = rating <= 0 ? 0 : rating;
+          student.sortOrder = -rating;
+          student.isPassing = rating > 0;
+        }
+      });
 
       // Keeps all the tables in sync
       $('#scrollTable').scroll(function(){
