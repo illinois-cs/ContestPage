@@ -61,13 +61,17 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.students = students;
 
       $scope.cleanse = function (unsafe) {
-        return unsafe
+        var maxlen = 28;
+        var clean = unsafe
          .replace(/&/g, "&amp;")
          .replace(/</g, "&lt;")
          .replace(/>/g, "&gt;")
          .replace(/"/g, "&quot;")
-         .replace(/'/g, "&#39;")
-         .substring(0,15);
+         .replace(/'/g, "&#39;");
+        if (clean.length > maxlen) {
+          return clean.substring(0, maxlen - 3) + "...";
+        }
+        return clean;
       };
       $scope.formatMem = function(t) {
           var unit = "B";
@@ -117,6 +121,10 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.getRatingSortOrder = function(student) {
         if(Object.keys(student).length < 2) return Infinity;
         return -getRating(student, ta);
+      }
+
+      $scope.stripTimestamp = function(stamp) {
+        return stamp.split(".")[0];
       }
 
       // Keeps all the tables in sync
