@@ -135,6 +135,13 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         return stamp.split(".")[0];
       };
 
+      $scope.getPlaceText = function(index) {
+        if (index == 1) return "1st";
+        if (index == 2) return "2nd";
+        if (index == 3) return "3rd";
+        return "";
+      }
+
       // Set ratings
       $.each(students, function(i, student) {
         if (Object.keys(student).length < 2) {
@@ -163,5 +170,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         $(".col1, #scrollTable").height($(window).height() - $("#headers").height());
       });
       $( window ).resize();
+
+      $("#loading-info").remove();
     });
   }]);
