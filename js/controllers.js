@@ -1,13 +1,29 @@
 contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http) {
     $http.get('./data/results.json').success(function(students) {
-      // Find TA solution and fudge some values:
+      // Find TA solution
       var ta;
       for (var i = 0; i < students.length; i++) {
           if(students[i].is_ta_solution) {
             ta = students[i];
             ta["nickname"] = "glibc";
-            ta["test_cases"][0]["max_memory"] += 32.;
-            ta["test_cases"][0]["avg_memory"] += 32.;
+            // Fudge memory usage for the first test so it doesn't show as 0 bytes
+            ta["test_cases"][0].max_memory += 32.;
+            ta["test_cases"][0].avg_memory += 32.;
+
+            // TODO: runtimes are currently incorrect and need to be updated...
+            // hardcode for now
+            ta["test_cases"][0 ].runtime =  0.372000;
+            ta["test_cases"][1 ].runtime =  0.396000;
+            ta["test_cases"][2 ].runtime =  1.224000;
+            ta["test_cases"][3 ].runtime =  0.472000;
+            ta["test_cases"][4 ].runtime =  0.196000;
+            ta["test_cases"][5 ].runtime =  8.128000;
+            ta["test_cases"][6 ].runtime =  3.276000;
+            ta["test_cases"][7 ].runtime =  4.532000;
+            ta["test_cases"][8 ].runtime =  0.100000;
+            ta["test_cases"][9 ].runtime = 11.244000;
+            ta["test_cases"][10].runtime =  2.208000;
+            ta["test_cases"][11].runtime =  3.824000;
             break;
           }
       }
