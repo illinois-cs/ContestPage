@@ -82,7 +82,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.students = students;
 
       $scope.cleanse = function (unsafe) {
-        var maxlen = 28;
+        var maxlen = 20;
         var clean = unsafe
          .replace(/&/g, "&amp;")
          .replace(/</g, "&lt;")
