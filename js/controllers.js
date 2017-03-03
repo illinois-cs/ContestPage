@@ -28,22 +28,21 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
 
         // TODO: runtimes are currently incorrect and need to be updated...
         // hardcode for now
-        ta["test_cases"][0 ].runtime =  0.372000;
-        ta["test_cases"][1 ].runtime =  0.396000;
-        ta["test_cases"][2 ].runtime =  1.224000;
-        ta["test_cases"][3 ].runtime =  0.472000;
-        ta["test_cases"][4 ].runtime =  0.196000;
-        ta["test_cases"][5 ].runtime =  8.128000;
-        ta["test_cases"][6 ].runtime =  3.276000;
-        ta["test_cases"][7 ].runtime =  4.532000;
-        ta["test_cases"][8 ].runtime =  0.100000;
-        ta["test_cases"][9 ].runtime = 11.244000;
-        ta["test_cases"][10].runtime =  2.208000;
-        ta["test_cases"][11].runtime =  3.824000;
+        ta["test_cases"][1  -1].runtime =  0.372000;
+        ta["test_cases"][2  -1].runtime =  0.392000;
+        ta["test_cases"][3  -1].runtime =  1.220000;
+        ta["test_cases"][4  -1].runtime =  0.456000;
+        ta["test_cases"][5  -1].runtime =  0.196000;
+        ta["test_cases"][6  -1].runtime =  8.128000;
+        ta["test_cases"][7  -1].runtime =  3.272000;
+        ta["test_cases"][8  -1].runtime =  4.528000;
+        ta["test_cases"][9  -1].runtime =  0.100000;
+        ta["test_cases"][10 -1].runtime = 11.216000;
+        ta["test_cases"][11 -1].runtime =  0.192000;
+        ta["test_cases"][12 -1].runtime =  7.644000;
 
         if (formula == "fast") {
-          ta["test_cases"][9 ].runtime = 0.048;
-          ta["test_cases"][10].runtime = 0.024;
+          ta["test_cases"][10 -1].runtime =  0.048000;
         }
 
         break;
