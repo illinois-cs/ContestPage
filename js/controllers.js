@@ -82,18 +82,14 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       $scope.students = students;
 
       $scope.cleanse = function (unsafe) {
-        var maxlen = 20;
-        var clean = unsafe
+        return unsafe
          .replace(/&/g, "&amp;")
          .replace(/</g, "&lt;")
          .replace(/>/g, "&gt;")
          .replace(/"/g, "&quot;")
          .replace(/'/g, "&#39;");
-        if (clean.length > maxlen) {
-          return clean.substring(0, maxlen - 3) + "...";
-        }
-        return clean;
       };
+
       $scope.formatMem = function(t) {
           var unit = "B";
           var b = 1024;
@@ -112,6 +108,7 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           }
           return [t, unit];
       };
+
       $scope.formatTime = function(t) {
           t *= 1e9;
           var unit = "ns";
@@ -164,13 +161,16 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         $("#headers").scrollLeft(b);
       });
 
-      // Resize things
-      $( window ).resize(function() {
-        $(".xscroll, .xscroll > div").width($(window).width() - $(".col1").width());
-        $(".col1, #scrollTable").height($(window).height() - $("#headers").height());
-      });
-      $( window ).resize();
-
       $("#loading-info").remove();
+
+      // Resize things
+      var col1_width = $("#col1-header").width();
+      var head_height = $("#headers").height();
+      $(".col1 table").width(col1_width);
+      $(window).resize(function() {
+        $(".xscroll, .xscroll > div").width($(window).width() - col1_width);
+        $(".col1, #scrollTable").height($(window).height() - head_height);
+      });
+      $(window).resize();
     });
   }]);
