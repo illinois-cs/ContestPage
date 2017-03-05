@@ -203,8 +203,8 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
     var head_height = $("#headers").height();
     $(".col1 table").width(col1_width);
     $(window).resize(function() {
-      $(".xscroll, .xscroll > div").width($(window).width() - col1_width);
-      $(".col1, #scrollTable").height($(window).height() - head_height);
+      $(".xscroll, .xscroll > div").width($(window).width() - col1_width - 1);
+      $(".col1, #scrollTable").height($(window).height() - head_height - 1);
     });
     $(window).resize();
   });
