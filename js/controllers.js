@@ -26,7 +26,6 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         // Fudge memory usage for the first test so it doesn't show as 0 bytes
         students[i]["test_cases"][0].max_memory += 32.;
         students[i]["test_cases"][0].avg_memory += 32.;
-        break;
       }
     }
 
