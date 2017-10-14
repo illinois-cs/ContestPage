@@ -93,6 +93,11 @@
                   {{student.normalizedRating.toFixed(2)}}%
                 </div>
               </td>
+              <td>
+                <div ng-style="!student.isPassing ? {'font-style':'italic', 'color':'#777'} : {}">
+                  {{student.contestNormalizedRating.toFixed(2)}}%
+                </div>
+              </td>
           </tr>
         </table>
         <div id="loading-info" style="font-size: 200%; text-align: center;">

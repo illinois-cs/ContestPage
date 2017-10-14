@@ -29,6 +29,10 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       }
     }
 
+    var getScore = function(taMax, taAvg, taRun, stMax, stAvg, stRun){
+      return 100 * (.6 * (taMax / stMax) + .2 * (taAvg / stAvg) + .2 * (taRun / stRun));
+    }
+
     var getRating = function(student) {
       if (ta == undefined) {
         console.log("ta was undefined.")
@@ -46,24 +50,30 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       if (formula == "old") {
         var stMax = 0, stAvg = 0, stRun = 0;
         var taMax = 0, taAvg = 0, taRun = 0;
+        var result = 0;
         for (var i = 0; i < ta.test_cases.length; i++) {
+          //multiplier sets weight of test_secret
+          var multiplier = (i==ta.test_cases.length-1) ? 2 : 1;
           var stTest = student.test_cases[i];
           if (stTest.pts_earned != stTest.total_pts) {
             stMax += -1e15;
             stAvg += -1e15;
             stRun += -1e15;
           } else {
-            stMax += stTest.max_memory;
-            stAvg += stTest.avg_memory;
-            stRun += stTest.runtime;
+            stMax += multiplier * stTest.max_memory;
+            stAvg += multiplier * stTest.avg_memory;
+            stRun += multiplier * stTest.runtime;
           }
 
           var taTest = ta.test_cases[i];
-          taMax += taTest.max_memory;
-          taAvg += taTest.avg_memory;
-          taRun += taTest.runtime;
+          taMax += multiplier * taTest.max_memory;
+          taAvg += multiplier * taTest.avg_memory;
+          taRun += multiplier * taTest.runtime;
+          if(i == ta.test_cases.length - 2)
+            result = getScore(taMax, taAvg, taRun stMax, stAvg, stRun); 
         }
-        return 100 * (.6 * (taMax / stMax) + .2 * (taAvg / stAvg) + .2 * (taRun / stRun));
+        var contestResult = getScore(taMax, taAvg, taRun stMax, stAvg, stRun); 
+        return [result, contestResult]
       }
 
       // http://stackoverflow.com/questions/4856717/javascript-equivalent-of-pythons-zip-function
@@ -99,8 +109,15 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
       }
 
       function add(a, b) { return a + b; }
-      return 100 * student_ta_test_cases.map(stat).reduce(add, 0) /
-          student.test_cases.length;
+      if(student_ta_test_cases.length == 12){
+        return [100 * student_ta_test_cases.map(stat).reduce(add, 0) /
+          student.test_cases.length, -1] 
+ 
+      }
+      return [100 * student_ta_test_cases.slice(0, -1).map(stat).reduce(add, 0) /
+          (student.test_cases.length-1), 
+              100 * student_ta_test_cases.map(stat).reduce(add, 0) /
+          student.test_cases.length] 
     }
 
     $scope.students = students;
@@ -162,9 +179,17 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         student.isPassing = false;
       } else {
         var rating = getRating(student, ta);
-        student.normalizedRating = rating <= 0 ? 0 : rating;
-        student.sortOrder = -rating;
-        student.isPassing = rating > 0;
+        if(rating[1] != -1){
+          student.normalizedRating = rating[0] <= 0 ? 0 : rating[0];
+          student.contestNormalizedRating = rating[1] <= 0 ? 0 : rating[1];
+          student.sortOrder = -rating[1];  //sort on contest rating
+          student.isPassing = rating[0] > 0; //pass on normal rating
+        } else {
+          student.normalizedRating = rating[0] <= 0 ? 0 : rating[0];
+          student.contestNormalizedRating = 0;
+          student.sortOrder = Infinity;  //sort on contest rating
+          student.isPassing = rating[0] > 0; //pass on normal rating
+        } 
       }
     });
 
