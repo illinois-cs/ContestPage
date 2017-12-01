@@ -65,8 +65,9 @@
       <div id='headers' style = "overflow:hidden;">
         <table>
           <tr>
-            <td ng-repeat="testcase in students[0].test_cases" style = "background-color:rgba(225,233,241,255);"><div><h2>{{testcase.name}}</h2></div></td>
+            <td ng-repeat="testcase in ta.test_cases" style = "background-color:rgba(225,233,241,255);"><div><h2>{{testcase.name}}</h2></div></td>
             <td style = "background-color:rgba(225,233,241,255);"><div style = "width:250px"><h2>Score</h2></div></td>
+            <td style = "background-color:rgba(225,233,241,255);"><div style = "width:250px"><h2>Contest Score</h2></div></td>
           </tr>
         </table>
       </div>
@@ -76,14 +77,17 @@
           <tr ng-repeat="student in students | orderBy: 'sortOrder'" ng-if="student.nickname != 'Anonymous'" style = 'border-bottom: 2px solid rgba(225,233,241,255);'>
               <td ng-repeat="testcase in student.test_cases" ng-class = "testcase.pts_earned == testcase.total_pts ? 'pass' : 'fail'" ng-style="student.is_ta_solution ? {'background-color':'#FFFF9F'} : {}">
                 <div>
-                  <div ng-if="testcase.pts_earned == testcase.total_pts">
+                  <div ng-if="testcase.pts_earned == testcase.total_pts && testcase.total_pts != -1">
                     <p>
                       <b>{{formatTime(testcase.runtime)[0]}}</b>{{formatTime(testcase.runtime)[1]}},
                       <b>{{formatMem(testcase.max_memory)[0]}}</b>{{formatMem(testcase.max_memory)[1]}},
                       <b>{{formatMem(testcase.avg_memory)[0]}}</b>{{formatMem(testcase.avg_memory)[1]}}
                     </p>
                   </div>
-                  <div ng-if="testcase.pts_earned != testcase.total_pts">
+                  <div ng-if="testcase.total_pts == -1">
+                    PENDING
+                  </div>
+                  <div ng-if="testcase.pts_earned != testcase.total_pts && testcase.total_pts != -1">
                     FAILED
                   </div>
                 </div>

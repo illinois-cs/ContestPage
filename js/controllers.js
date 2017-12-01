@@ -70,9 +70,9 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           taAvg += multiplier * taTest.avg_memory;
           taRun += multiplier * taTest.runtime;
           if(i == ta.test_cases.length - 2)
-            result = getScore(taMax, taAvg, taRun stMax, stAvg, stRun); 
+            result = getScore(taMax, taAvg, taRun, stMax, stAvg, stRun); 
         }
-        var contestResult = getScore(taMax, taAvg, taRun stMax, stAvg, stRun); 
+        var contestResult = getScore(taMax, taAvg, taRun, stMax, stAvg, stRun); 
         return [result, contestResult]
       }
 
@@ -81,6 +81,18 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         return arrays[0].map(function(_,i){
           return arrays.map(function(array){return array[i]})
         });
+      } 
+
+      if(student.test_cases.length != ta.test_cases.length){
+        console.log(student, ta);
+        student.test_cases.push({
+          pts_earned: 0.0,
+          total_pts: -1.0,
+          runtime: 0.0,
+          name: "tester-secret",
+          avg_memory: 0.0,
+          max_memory: 0.0
+        });
       }
 
       student_ta_test_cases = zip([student.test_cases, ta.test_cases])
@@ -88,6 +100,9 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
         student_test_case = student_ta_test_case[0]
         ta_test_case = student_ta_test_case[1]
         if (student_test_case.pts_earned != student_test_case.total_pts) {
+          if (student_test_case.name == "tester-secret"){
+            return 0;
+          }
           // Like -Infinity, but not quite, so we can still kinda rank bad implementations
           return -1e15;
         }
@@ -107,20 +122,21 @@ contestApp.controller('ContestCtrl', ['$scope', '$http', function ($scope, $http
           (3/8) * Math.log2(ta_avg / st_avg + 1) +
           (3/8) * Math.log2(ta_max / st_max + 1));
       }
-
       function add(a, b) { return a + b; }
       if(student_ta_test_cases.length == 12){
         return [100 * student_ta_test_cases.map(stat).reduce(add, 0) /
           student.test_cases.length, -1] 
  
       }
-      return [100 * student_ta_test_cases.slice(0, -1).map(stat).reduce(add, 0) /
-          (student.test_cases.length-1), 
-              100 * student_ta_test_cases.map(stat).reduce(add, 0) /
-          student.test_cases.length] 
+      var rawScores = student_ta_test_cases.map(stat);
+      var score = rawScores.slice(0, -1).reduce(add, 0);
+      var contestScore = score + 2*rawScores.slice(-1)[0]; // tester-secret 2x
+      return [100 * score / (student.test_cases.length-1), 
+              100 * contestScore / (student.test_cases.length + 1)] 
     }
 
     $scope.students = students;
+    $scope.ta = ta;
 
     $scope.formatMem = function(t) {
       var unit = "B";
